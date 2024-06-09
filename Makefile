@@ -1,14 +1,13 @@
+include make.config
+
 # Define variables
-CC=/opt/aarch64/bin/aarch64-linux-gnu-gcc
-CXX=/opt/aarch64/bin/aarch64-linux-gnu-g++
-ARMNN_DIR=/home/bea1e/GPU-TEE/Benchmarks/armnn
 CFLAGS=-O3 -std=c++14
-LDLIBS=-L$(ARMNN_DIR)/build-tool/docker_output/aarch64_build  -larmnn -larmnnOnnxParser -larmnnUtils -lprotobuf -lpthread
-INCLUDES=-I$(ARMNN_DIR)/include
-SRC=armnn-inference-demo.cpp
+LDLIBS=-L$(ARMNN_DIR)/build-tool/docker_output/aarch64_build -larmnn -larmnnOnnxParser -larmnnUtils -lprotobuf -lpthread
+INCLUDES=-I$(ARMNN_DIR)/include -I$(ARMNN_DIR)/profiling -I$(ARMNN_DIR)/third-party
+SRC=ArmnnInferenceDemo.cpp
 
 # Define target
-TARGET = armnn-inference-demo
+TARGET = ArmnnInferenceDemo
 
 # Rule for building the target
 $(TARGET): $(SRC)
