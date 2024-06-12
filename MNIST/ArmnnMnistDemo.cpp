@@ -19,8 +19,8 @@ std::vector<armnn::BindingPointInfo> OutputBindingsInfo;
 char modelPath[] = "./mnist-12/mnist-12.onnx";
 char inputBindingName[] = "Input3";
 char outputBindingName[] = "Plus214_Output_0";
-char imagePath[] = "./t10k-images.idx3-ubyte";
-char labelPath[] = "./t10k-labels.idx1-ubyte";
+char imagePath[] = "./t10k-images-idx3-ubyte";
+char labelPath[] = "./t10k-labels-idx1-ubyte";
 
 bool m_ScaleValues = true;
 
@@ -210,7 +210,7 @@ int main(int argc, char *argv[])
         runtime->EnqueueWorkload(networkIdentifier, inputTensors, outputTensors);
         const auto duration = armnn::GetTimeDuration(start_time);
 
-        // Now outputTensorData contains the output of the model
+        ;
     }
     catch (const std::exception& e)
     {
